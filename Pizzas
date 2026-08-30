@@ -1,0 +1,51 @@
+const express = require("express");
+const app = express ();
+const PORT = 3000;
+
+app.get("/api/v1/Saludo", (req, res) => {
+		const Saludo =
+		{mensaje: "Hola mundo"}
+        
+        return res.status (200).json(Saludo);
+    });
+
+app.get("/api/v1/pizzas", (req, res) => {
+		const pizzas = [ 
+		{nombre: "Hawaiana", 
+            descripción : "Jamón y Piña"},
+        {nombre: "Charro", 
+            descripción : "Bistec, Hongos y Chiles jalapeños"},
+        {nombre: "Pepperoni", 
+            descripción : "Pepperoni y Queso"},
+        {nombre: "Rusa", 
+            descripción : "Vodka y Carne de Oso"},
+        {nombre: "Di Salmone", 
+            descripción : "Salmón marinado, mozzarella, Salsa pomodoro, Queso crema y Cebolla morada"}
+];
+	return res.status (200).json(pizzas);
+}); 
+
+app.get("/api/v1/tamanios", (req, res) => {
+		const tamanios = [ 
+		{tipo: "Chica"}, 
+        {tipo: "Mediana"},
+        {tipo: "Grande"},
+        {tipo: "Familiar"},
+];
+	return res.status (200).json(tamanios);
+}); 
+
+app.get("/api/v1/bebidas", (req, res) => {
+		const bebidas = [ 
+		{nombre: "Coca-Cola"},
+        {nombre: "Jarrito"},
+        {nombre: "Boing"},
+        {nombre: "Fanta"},
+        {nombre: "Limonada"},
+];
+	return res.status (200).json(bebidas);
+}); 
+
+app.listen(PORT, () => {
+    console.log(`Servidor Express escuchando en el puerto ${PORT}`);
+}) ;
